@@ -3,23 +3,25 @@ require 'db.php';
 require 'account.php';
 require 'student.php';
 require 'schoolfee.php';
-
-
-    function execute(){
-       
-        // if (isset($_POST['addstudent'])) {
-        //     $create = Student::createStudent();
-        //     $add = Student::addStudent();
-        //     $acct = Student::createAccount();
-        //     $addacct = Student::addAccount();
-        // }elseif (isset($_POST['addtransaction'])) {
-        //     $create = parent::createTransaction();
-        //     $add = parent::addTransaction();
-        // }elseif (isset($_POST['addschoolfee'])) {
+ 
+function execute(){
+    $student = new Student();
+    $account = new Account();
+    $schoolfee = new Schoolfee();
+        
+        if (isset($_POST['addstudent'])) {    
+            $create = $student->createStudent();
+            $add = $student->addStudent();
+            $acct = $student->createAccount();
+            $addacct = $account->addAccount();
+        }elseif (isset($_POST['addtransaction'])) {
+            $create = $account->createTransaction();
+            $add = $account->addTransaction();
+        }elseif (isset($_POST['addschoolfee'])) {
             
-        // }elseif (isset($_POST['updatestudent'])) {
+        }elseif (isset($_POST['updatestudent'])) {
             
-        // }
-    }    
+        }
+}    
 
 execute();

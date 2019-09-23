@@ -1,8 +1,10 @@
 <?php 
 
-
-
 class Student extends Connect{
+
+    public function __construct() {
+        parent::__construct();
+    }
     
     public function createStudent(){
         $sql = "CREATE TABLE IF NOT EXISTS students (
@@ -11,14 +13,14 @@ class Student extends Connect{
             fname VARCHAR(20),
             oname VARCHAR(20),
             class VARCHAR(10),
-            table VARCHAR(10)
+            tbl VARCHAR(10)
             )";
             $this->link->query($sql);
     }
 
     public function addStudent(){
         $sql = "INSERT INTO students 
-                (lname,fname,oname,class,table) 
+                (lname,fname,oname,class,tbl) 
                 VALUES 
                 ('$ln','$fn','$on','$cl','$tbl')";
         $this->link->query($sql);
@@ -30,7 +32,7 @@ class Student extends Connect{
                 fname='$fn',
                 oname='$on',
                 class='$cl',
-                table='$tbl' WHERE id='$sid' ";
+                tbl='$tbl' WHERE id='$sid' ";
         $this->link->query($sql);
     }
     

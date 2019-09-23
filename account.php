@@ -1,17 +1,20 @@
 <?php 
 
-
-
 class Account extends Connect{
+
+    public function __construct(){
+        parent::__construct();
+    }
 
     public function createAccount(){
         $sql = "CREATE TABLE IF NOT EXISTS accounts (
             id INT PRIMARY KEY AUTO_INCREMENT,
-            sid INT NOT NULL,
+            stid INT NOT NULL,
             balance INT NOT NULL,
-            date date,
+            date_updated date,
             FOREIGN KEY(sid) REFERENCES students(id)
         )";
+        $this->link->query($sql);
     }
 
     public function createTransaction(){
@@ -21,14 +24,14 @@ class Account extends Connect{
             amount INT NOT NULL,
             trans_type VARCHAR(10) NOT NULL,
             bursar VARCHAR(20) NOT NULL,
-            date date,
+            date_updated date,
             FOREIGN KEY(acct_id) REFERENCES accounts(id)
         )";
     }
 
     public function addAccount(){
         $sql = "INSERT INTO accounts (
-            sid,
+            stid,
             balance
         ) VALUES (
             '$sid',

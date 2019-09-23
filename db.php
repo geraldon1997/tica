@@ -4,7 +4,7 @@ define('HOST','localhost');
 define('USER','root');
 define('PASSWORD','');
 define('DATABASE','tica');
-
+ 
 class Connect{
     public $link;
     
@@ -14,6 +14,5 @@ class Connect{
         if (!$this->link) {
             echo "error in connection, contact administrator". mysqli_error();
         }
-        return $this->link;
     }
 }
