@@ -9,15 +9,17 @@ require 'bursar.php';
 $d = date('m');
 
 switch ($d) {
-    case $d >= 9 && $d <= 12:
+    case $d >= 9 && $d = 12:
         $term = 'first term';
         break;
     
-    case $d >= 1 && $d <= 4:
+    case $d = 1 && $d <= 4:
         $term = 'second term';
         break;
 
-    case $d :
+    case $d = 5 && $d <= 8:
+        $term = 'third term';
+        break;
 }
 
 function hashpwd($pwd){
