@@ -23,7 +23,7 @@ class Account extends Connect{
             acct_id INT NOT NULL,
             amount INT NOT NULL,
             trans_type VARCHAR(10) NOT NULL,
-            bursar VARCHAR(20) NOT NULL,
+            bursar_id INT NOT NULL,
             date_updated date,
             FOREIGN KEY(acct_id) REFERENCES accounts(id)
         )";
