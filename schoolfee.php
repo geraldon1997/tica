@@ -12,6 +12,16 @@ class SchoolFee extends Connect{
         $this->link->query($sql);
     }
 
+    public function addSchoolFee($stid,$fee){
+        $sql = "INSERT INTO schoolfees (
+            stid,
+            fee
+        ) VALUES (
+            '$stid',
+            '$fee'
+        )";
+    }
+
     public function createFeeTrans(){
         $sql = "CREATE TABLE IF NOT EXISTS feetrans(
             id INT PRIMARY KEY AUTO_INCREMENT,
@@ -26,15 +36,17 @@ class SchoolFee extends Connect{
         $this->link->query($sql);
     }
 
-    public function addFeeTrans(){
+    public function addFeeTrans($schfeeid,$amount,$bursar,$date){
         $sql = "INSERT INTO feetrans (
             schfeeid,
             amount_paid,
             bursar_id,
             date_paid,
-            date_entered,
         ) VALUES (
-
+            '$schfeeid',
+            '$amount',
+            '$bursar',
+            '$date'
         )";
     }
 
