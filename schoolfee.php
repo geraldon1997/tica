@@ -9,6 +9,7 @@ class SchoolFee extends Connect{
             fee INT NOT NULL,
             FOREIGN KEY(sid) REFERENCES students(id)
         )";
+        
         $this->link->query($sql);
     }
 
@@ -20,6 +21,8 @@ class SchoolFee extends Connect{
             '$stid',
             '$fee'
         )";
+
+        $this->link->query($sql);
     }
 
     public function createFeeTrans(){
@@ -54,6 +57,8 @@ class SchoolFee extends Connect{
             '$term',
             '$sess'
         )";
+
+        $this->link->query($sql);
     }
 
 }

@@ -1,11 +1,32 @@
 <?php
+
 require 'db.php';
 require 'account.php';
 require 'student.php';
 require 'schoolfee.php';
 require 'bursar.php';
+
+$d = date('m');
+
+switch ($d) {
+    case $d >= 9 && $d <= 12:
+        $term = 'first term';
+        break;
+    
+    case $d >= 1 && $d <= 4:
+        $term = 'second term';
+        break;
+
+    case $d :
+}
+
+function hashpwd($pwd){
+    $pwd = sha1($pwd);
+    return $pwd;
+}
  
 function execute(){
+    
     $student = new Student();
     $account = new Account();
     $schoolfee = new Schoolfee();
@@ -31,7 +52,14 @@ function execute(){
             $add = $schoolfee->addFeeTrans();
         
         }elseif (isset($_POST['updatestudent'])) {
+        
+            $update = $student->updateStudent();
+
+        }elseif (isset($_POST['addbursar'])) {
             
+            $create = $bursar->createBursar();
+            $add = $bursar->addBursar();
+        
         }
 }    
 

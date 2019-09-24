@@ -18,15 +18,24 @@ class Student extends Connect{
             $this->link->query($sql);
     }
 
-    public function addStudent(){
-        $sql = "INSERT INTO students 
-                (lname,fname,oname,class,tbl) 
-                VALUES 
-                ('$ln','$fn','$on','$cl','$tbl')";
+    public function addStudent($ln,$fn,$on,$cl,$tbl){
+        $sql = "INSERT INTO students (
+            lname,
+            fname,
+            oname,
+            class,
+            tbl
+            ) VALUES (
+            '$ln',
+            '$fn',
+            '$on',
+            '$cl',
+            '$tbl'
+            )";
         $this->link->query($sql);
     }
     
-    public function updateStudent(){
+    public function updateStudent($ln,$fn,$on,$cl,$tbl){
         $sql = "UPDATE TABLE students 
             SET lname='$ln',
                 fname='$fn',
@@ -36,7 +45,8 @@ class Student extends Connect{
         $this->link->query($sql);
     }
     
-    public function searchForStudent(){
+    public function searchForStudent($student,$class){
+
         if (!empty($_POST['student']) && empty($_POST['class'])) {
             $sql = "SELECT * FROM students WHERE sname LIKE '%$student%' ";
         }elseif (empty($_POST['student']) && !empty($_POST['class'])) {
