@@ -28,25 +28,31 @@ class SchoolFee extends Connect{
             schfeeid INT NOT NULL,
             amount_paid INT NOT NULL,
             bursar_id INT NOT NULL,
-            date_paid date,
-            date_entered date,
+            date_paid date NOT NULL,
+            term VARCHAR(20) NOT NULL,
+            sess VARCHAR(20) NOT NULL,
+            date_entered date NOT NULL,
             FOREIGN KEY(schfeeid) REFERENCES schoolfees(id),
             FOREIGN KEY(bursar_id) REFERENCES bursars(id)
         )";
         $this->link->query($sql);
     }
 
-    public function addFeeTrans($schfeeid,$amount,$bursar,$date){
+    public function addFeeTrans($schfeeid,$amount,$bursar,$date,$term,$sess){
         $sql = "INSERT INTO feetrans (
             schfeeid,
             amount_paid,
             bursar_id,
             date_paid,
+            term,
+            sess
         ) VALUES (
             '$schfeeid',
             '$amount',
             '$bursar',
-            '$date'
+            '$date',
+            '$term',
+            '$sess'
         )";
     }
 
