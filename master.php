@@ -6,19 +6,30 @@ require 'student.php';
 require 'schoolfee.php';
 require 'bursar.php';
 
-$d = date('m');
+$m = date('m');
+$y = date('Y');
 
-switch ($d) {
-    case $d >= 9 && $d = 12:
+switch ($m) {
+    case $m >= 9 && $m = 12:
         $term = 'first term';
         break;
     
-    case $d = 1 && $d <= 4:
+    case $m = 1 && $m <= 4:
         $term = 'second term';
         break;
 
-    case $d = 5 && $d <= 8:
+    case $m = 5 && $m <= 8:
         $term = 'third term';
+        break;
+}
+
+switch ($m) {
+    case $m >= 9 && $m = 12:
+        $session = $y.' / '.$y + 1;
+        break;
+    
+    default:
+        # code...
         break;
 }
 
@@ -65,4 +76,5 @@ function execute(){
         }
 }    
 
-execute();
+// execute();
+echo $session;
