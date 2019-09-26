@@ -25,12 +25,11 @@ switch ($m) {
 
 switch ($m) {
     case $m >= 9 && $m = 12:
-        $session = $y.' / '.$y + 1;
+        $session = $y.' / '.($y + 1);
         break;
     
-    default:
-        # code...
-        break;
+    case $m >= 1 && $m <= 8:
+        $session = ($y - 1).' / '.$y;
 }
 
 function hashpwd($pwd){
@@ -48,31 +47,34 @@ function execute(){
         if (isset($_POST['addstudent'])) {    
             
             $create = $student->createStudent();
-            $add = $student->addStudent();
+            // $add = $student->addStudent();
             $acct = $student->createAccount();
             $addacct = $account->addAccount();
             $createfee = $schoolfee->createSchoolFee();
-            $addfee = $schoolfee->addSchoolFee();
+            // $addfee = $schoolfee->addSchoolFee();
 
         }elseif (isset($_POST['addtransaction'])) {
             
             $create = $account->createTransaction();
-            $add = $account->addTransaction();
+            // $add = $account->addTransaction();
         
         }elseif (isset($_POST['addschoolfee'])) {
         
             $create = $schoolfee->createFeeTrans();
-            $add = $schoolfee->addFeeTrans();
+            // $add = $schoolfee->addFeeTrans();
         
         }elseif (isset($_POST['updatestudent'])) {
         
-            $update = $student->updateStudent();
+            // $update = $student->updateStudent();
 
         }elseif (isset($_POST['addbursar'])) {
             
             $create = $bursar->createBursar();
-            $add = $bursar->addBursar();
+            $pwd = hashpwd($_POST['password']);
+            // $add = $bursar->addBursar();
         
+        }elseif (isset($_POST['searchstudent'])) {
+            // $search = $student->searchForStudent();
         }
 }    
 

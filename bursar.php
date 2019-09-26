@@ -32,7 +32,7 @@ class Bursar{
         $this->link->query($sql);
     }
 
-    public function updateBursar(){
+    public function updateBursar($ln,$fn,$on,$user,$pwd,$bid){
         $sql = "UPDATE bursars SET
             lname = '$ln',
             fname = '$fn',

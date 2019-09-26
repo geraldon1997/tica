@@ -15,6 +15,7 @@ class Student extends Connect{
             class VARCHAR(10) NOT NULL,
             tbl VARCHAR(10) NOT NULL
             )";
+            
             $this->link->query($sql);
     }
 
@@ -32,16 +33,18 @@ class Student extends Connect{
             '$cl',
             '$tbl'
             )";
+
         $this->link->query($sql);
     }
     
-    public function updateStudent($ln,$fn,$on,$cl,$tbl){
+    public function updateStudent($ln,$fn,$on,$cl,$tbl,$sid){
         $sql = "UPDATE TABLE students 
             SET lname='$ln',
                 fname='$fn',
                 oname='$on',
                 class='$cl',
                 tbl='$tbl' WHERE id='$sid' ";
+
         $this->link->query($sql);
     }
     
