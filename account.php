@@ -11,8 +11,8 @@ class Account extends Connect{
             id INT PRIMARY KEY AUTO_INCREMENT,
             stid INT NOT NULL,
             balance INT NOT NULL,
-            date_updated date,
-            FOREIGN KEY(sid) REFERENCES students(id)
+            date_updated date NOT NULL,
+            FOREIGN KEY(stid) REFERENCES students(id)
         )";
         
         $this->link->query($sql);
@@ -20,7 +20,7 @@ class Account extends Connect{
 
     public function createTransaction(){
         $sql = "CREATE TABLE IF NOT EXISTS transactions (
-            id INT AUTO_INCREMENT,
+            id INT PRIMARY KEY AUTO_INCREMENT,
             acct_id INT NOT NULL,
             amount INT NOT NULL,
             trans_type VARCHAR(10) NOT NULL,
@@ -28,6 +28,8 @@ class Account extends Connect{
             date_updated date,
             FOREIGN KEY(acct_id) REFERENCES accounts(id)
         )";
+
+        $this->link->query($sql);
     }
 
     public function addAccount($sid){

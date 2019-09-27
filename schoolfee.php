@@ -7,7 +7,7 @@ class SchoolFee extends Connect{
             id INT PRIMARY KEY AUTO_INCREMENT,
             stid INT NOT NULL,
             fee INT NOT NULL,
-            FOREIGN KEY(sid) REFERENCES students(id)
+            FOREIGN KEY(stid) REFERENCES students(id)
         )";
         
         $this->link->query($sql);
@@ -38,6 +38,7 @@ class SchoolFee extends Connect{
             FOREIGN KEY(schfeeid) REFERENCES schoolfees(id),
             FOREIGN KEY(bursar_id) REFERENCES bursars(id)
         )";
+        
         $this->link->query($sql);
     }
 

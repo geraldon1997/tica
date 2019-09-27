@@ -38,28 +38,28 @@ function execute(){
     $account = new Account();
     $schoolfee = new Schoolfee();
     $bursar = new Bursar();
-    $acct = $account->createAccount();
+
         // if (isset($_POST['addstudent'])) {    
         //     $ln=$_POST['ln'];
         //     $fn=$_POST['fn'];
         //     $on=$_POST['on'];
         //     $cl=$_POST['cl'];
         //     $tbl=$_POST['tbl'];
-        //     $create = $student->createStudent();
+            $create = $student->createStudent();
         //     $add = $student->addStudent($ln,$fn,$on,$cl,$tbl);
-        //     $acct = $account->createAccount();
+            $acct = $account->createAccount();
         // //     $addacct = $account->addAccount();
-        // //     $createfee = $schoolfee->createSchoolFee();
+            $createfee = $schoolfee->createSchoolFee();
         // //     $addfee = $schoolfee->addSchoolFee();
 
         // // }elseif (isset($_POST['addtransaction'])) {
             
-        // //     $create = $account->createTransaction();
+            $create = $account->createTransaction();
         // //     // $add = $account->addTransaction();
         
         // // }elseif (isset($_POST['addschoolfee'])) {
         
-        // //     $create = $schoolfee->createFeeTrans();
+            $create = $schoolfee->createFeeTrans();
         // //     // $add = $schoolfee->addFeeTrans();
         
         // // }elseif (isset($_POST['updatestudent'])) {
@@ -68,7 +68,7 @@ function execute(){
 
         // // }elseif (isset($_POST['addbursar'])) {
             
-        // //     $create = $bursar->createBursar();
+            $create = $bursar->createBursar();
         // //     $pwd = $bursar->hashpwd($_POST['password']);
         // //     // $add = $bursar->addBursar();
         

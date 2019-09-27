@@ -1,6 +1,10 @@
 <?php 
 
-class Bursar{
+class Bursar extends Connect{
+
+    public function __construct(){
+        parent::__construct();
+    }
 
     public function createBursar(){
         $sql = "CREATE TABLE IF NOT EXISTS bursars (
