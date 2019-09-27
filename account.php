@@ -14,6 +14,7 @@ class Account extends Connect{
             date_updated date,
             FOREIGN KEY(sid) REFERENCES students(id)
         )";
+        
         $this->link->query($sql);
     }
 
@@ -29,13 +30,13 @@ class Account extends Connect{
         )";
     }
 
-    public function addAccount(){
+    public function addAccount($sid){
         $sql = "INSERT INTO accounts (
             stid,
             balance
         ) VALUES (
             '$sid',
-            '$bal'
+            65000
         )";
     }
 

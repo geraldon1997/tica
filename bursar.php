@@ -43,4 +43,9 @@ class Bursar{
         $this->link->query($sql);
     }
 
+    public function hashpwd($pwd){
+        $pwd = sha1($pwd);
+        return $pwd;
+    }
+
 }

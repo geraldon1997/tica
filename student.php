@@ -60,5 +60,9 @@ class Student extends Connect{
         
         $this->link->query($sql);
     }
+
+    public function fetchStudentId(){
+        
+    }
     
 }
