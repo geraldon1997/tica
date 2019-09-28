@@ -9,7 +9,7 @@ class Student extends Connect{
     public function createStudent(){
         $sql = "CREATE TABLE IF NOT EXISTS students (
             id INT PRIMARY KEY AUTO_INCREMENT,
-            reg INT NOT NULL,
+            reg INT NOT NULL UNIQUE,
             lname VARCHAR(20) NOT NULL,
             fname VARCHAR(20) NOT NULL,
             oname VARCHAR(20),
