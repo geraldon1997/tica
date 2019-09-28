@@ -43,10 +43,9 @@ function execute(){
 
             $create = $student->createStudent();
             // $add = $student->addStudent($reg,$ln,$fn,$on,$cl,$tbl);
-            $createfee = $schoolfee->createSchoolFee();
+            // $createfee = $schoolfee->createSchoolFee();
             // $addfee = $schoolfee->addSchoolFee($reg,65000);
-            $acct = $account->createAccount();
-            
+            // $acct = $account->createAccount();
 }    
 
 execute();
