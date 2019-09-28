@@ -14,7 +14,7 @@ class Student extends Connect{
             fname VARCHAR(20) NOT NULL,
             oname VARCHAR(20),
             class VARCHAR(10) NOT NULL,
-            tbl VARCHAR(10) NOT NULL,
+            tbl VARCHAR(10) NOT NULL
             )";
             
             $this->link->query($sql);

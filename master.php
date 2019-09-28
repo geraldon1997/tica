@@ -41,13 +41,28 @@ function execute(){
     $reg = ceil(rand(111,9999));
     $date = date('d/m/Y');
 
-            $create = $student->createStudent();
-            // $add = $student->addStudent($reg,$ln,$fn,$on,$cl,$tbl);
-            // $createfee = $schoolfee->createSchoolFee();
-            // $addfee = $schoolfee->addSchoolFee($reg,65000);
-            // $acct = $account->createAccount();
+
+            if (isset($_POST['addstudent'])) {
+                $ln = $_POST['ln'];
+                $fn = $_POST['fn'];
+                $on = $_POST['on'];
+                $cl = $_POST['cl'];
+                $tbl = $_POST['tbl'];
+                
+                $create = $student->createStudent();
+                $add = $student->addStudent($reg,$ln,$fn,$on,$cl,$tbl);
+                $createfee = $schoolfee->createSchoolFee();
+                $addfee = $schoolfee->addSchoolFee($reg,65000);
+                $acct = $account->createAccount();
+                $addacct = $account->addAccount($reg,$date);
+
+            }elseif (isset($_POST['addbursar'])) {
+                $createBursar = $bursar->createBursar();
+            }elseif (isset($_POST['addtransaction'])) {
+                $createtransaction = $account->createTransaction();
+            }elseif (isset($_POST['addschfee'])) {
+                $createSchoolFee = $schoolfee->createFeeTrans();
+            }
 }    
 
 execute();
-// echo $session;
-

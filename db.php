@@ -12,7 +12,7 @@ class Connect{
         $this->link = new mysqli(HOST,USER,PASSWORD,DATABASE);
 
         if (!$this->link) {
-            echo "error in connection, contact administrator". mysqli_error();
+            echo "error in connection, contact administrator". mysqli_error($this->link);
         }
     }
 }

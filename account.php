@@ -26,7 +26,8 @@ class Account extends Connect{
             trans_type VARCHAR(10) NOT NULL,
             bursar_id INT NOT NULL,
             date_updated date,
-            FOREIGN KEY(acct_id) REFERENCES accounts(id)
+            FOREIGN KEY(acct_id) REFERENCES accounts(id),
+            FOREIGN KEY(bursar_id) REFERENCES bursars(id)
         )";
 
         $this->link->query($sql);
