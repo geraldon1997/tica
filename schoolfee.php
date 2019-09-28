@@ -5,20 +5,20 @@ class SchoolFee extends Connect{
     public function createSchoolFee(){
         $sql = "CREATE TABLE IF NOT EXISTS schoolfees (
             id INT PRIMARY KEY AUTO_INCREMENT,
-            stid INT NOT NULL,
+            regid INT NOT NULL,
             fee INT NOT NULL,
-            FOREIGN KEY(stid) REFERENCES students(id)
+            FOREIGN KEY(regid) REFERENCES students(reg)
         )";
         
         $this->link->query($sql);
     }
 
-    public function addSchoolFee($stid,$fee){
+    public function addSchoolFee($reg,$fee){
         $sql = "INSERT INTO schoolfees (
-            stid,
+            regid,
             fee
         ) VALUES (
-            '$stid',
+            '$reg',
             '$fee'
         )";
 

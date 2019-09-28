@@ -9,10 +9,10 @@ class Account extends Connect{
     public function createAccount(){
         $sql = "CREATE TABLE IF NOT EXISTS accounts (
             id INT PRIMARY KEY AUTO_INCREMENT,
-            stid INT NOT NULL,
+            regid INT NOT NULL,
             balance INT NOT NULL,
             date_updated date NOT NULL,
-            FOREIGN KEY(stid) REFERENCES students(id)
+            FOREIGN KEY(regid) REFERENCES students(reg)
         )";
         
         $this->link->query($sql);
@@ -32,14 +32,18 @@ class Account extends Connect{
         $this->link->query($sql);
     }
 
-    public function addAccount($sid){
+    public function addAccount($reg,$date){
         $sql = "INSERT INTO accounts (
-            stid,
-            balance
+            regid,
+            balance,
+            date_updated
         ) VALUES (
-            '$sid',
-            65000
+            '$reg',
+            0,
+            $date
         )";
+
+        $this->link->query($sql);
     }
 
     public function addTransaction($ac,$am,$tr,$b){

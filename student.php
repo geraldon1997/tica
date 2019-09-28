@@ -9,24 +9,27 @@ class Student extends Connect{
     public function createStudent(){
         $sql = "CREATE TABLE IF NOT EXISTS students (
             id INT PRIMARY KEY AUTO_INCREMENT,
+            reg INT NOT NULL,
             lname VARCHAR(20) NOT NULL,
             fname VARCHAR(20) NOT NULL,
             oname VARCHAR(20),
             class VARCHAR(10) NOT NULL,
-            tbl VARCHAR(10) NOT NULL
+            tbl VARCHAR(10) NOT NULL,
             )";
             
             $this->link->query($sql);
     }
 
-    public function addStudent($ln,$fn,$on,$cl,$tbl){
+    public function addStudent($reg,$ln,$fn,$on,$cl,$tbl){
         $sql = "INSERT INTO students (
+            reg,
             lname,
             fname,
             oname,
             class,
             tbl
             ) VALUES (
+            '$reg',
             '$ln',
             '$fn',
             '$on',
