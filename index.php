@@ -19,6 +19,11 @@
 
 
     <form action="master.php" method="post">
+        <input type="text" name="ln" id="" placeholder="last name">
+        <input type="text" name="fn" id="" placeholder="first name">
+        <input type="text" name="on" id="" placeholder="other name">
+        <input type="text" name="user" id="" placeholder="choose a username">
+        <input type="password" name="pass" id="" placeholder="enter a password">
         <input type="submit" value="add bursar" name="addbursar">
     </form>
 
@@ -29,6 +34,12 @@
 
     <form action="master.php" method="post">
         <input type="submit" value="add fee" name="addschfee">
+    </form>
+
+    <form action="master.php" method="post">
+        <input type="text" name="student" id="" placeholder="student name">
+        <input type="text" name="class" id="" placeholder="class">
+        <input type="submit" value="search" name="search">
     </form>
 </body>
 </html>

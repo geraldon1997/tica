@@ -40,32 +40,26 @@ class Student extends Connect{
         $this->link->query($sql);
     }
     
-    public function updateStudent($ln,$fn,$on,$cl,$tbl,$sid){
-        $sql = "UPDATE TABLE students 
-            SET lname='$ln',
-                fname='$fn',
-                oname='$on',
-                class='$cl',
-                tbl='$tbl' WHERE id='$sid' ";
+    public function updateStudent($reg,$ln,$fn,$on,$cl,$tbl){
+        $sql = "UPDATE students 
+            SET lname = '$ln',
+                fname = '$fn',
+                oname = '$on',
+                class = '$cl',
+                tbl = '$tbl' WHERE reg = '$reg' ";
 
         $this->link->query($sql);
     }
     
-    public function searchForStudent($student,$class){
-
-        if (!empty($_POST['student']) && empty($_POST['class'])) {
-            $sql = "SELECT * FROM students WHERE sname LIKE '%$student%' ";
-        }elseif (empty($_POST['student']) && !empty($_POST['class'])) {
-            $sql = "SELECT * FROM students WHERE class LIKE '%$class%' ";
-        }elseif (!empty($_POST['student']) && !empty($_POST['class'])) {
-            $sql = "SELECT * FROM students WHERE sname LIKE '%$student%' AND class LIKE '%$class%' ";
-        }
-        
-        $this->link->query($sql);
-    }
-
-    public function fetchStudentId(){
-        
+    public function getData($sql){
+        $result = $this->link->query($sql);
+        $rows = array();
+		
+		while ($row = $result->fetch_assoc()) {
+			$rows[] = $row;
+		}
+		
+		return $rows;
     }
     
 }

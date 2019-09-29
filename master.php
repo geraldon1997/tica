@@ -46,7 +46,7 @@ function execute(){
                 $ln = $_POST['ln'];
                 $fn = $_POST['fn'];
                 $on = $_POST['on'];
-                $cl = $_POST['cl'];
+                $cl = $_POST['cl']; 
                 $tbl = $_POST['tbl'];
                 
                 $create = $student->createStudent();
@@ -57,12 +57,71 @@ function execute(){
                 $addacct = $account->addAccount($reg,$date);
 
             }elseif (isset($_POST['addbursar'])) {
+
+                $ln = $_POST['ln'];
+                $fn = $_POST['fn'];
+                $on = $_POST['on'];
+                $user = $_POST['user']; 
+                $pwd = $_POST['pass'];
                 $createBursar = $bursar->createBursar();
+                $pwd = $bursar->hashpwd($pwd);
+                $addBursar = $bursar->addBursar($ln,$fn,$on,$user,$pwd);
+
             }elseif (isset($_POST['addtransaction'])) {
                 $createtransaction = $account->createTransaction();
             }elseif (isset($_POST['addschfee'])) {
                 $createSchoolFee = $schoolfee->createFeeTrans();
+            }elseif (isset($_POST['search'])) {
+
+                $studentname = $_POST['student'];
+                $classname = $_POST['class'];
+                
+                if (!empty($studentname) && empty($classname)) {
+                    $sql = "SELECT * FROM students WHERE sname LIKE '%$studentname%' ";
+                }elseif (empty($studentname) && !empty($classname)) {
+                    $sql = "SELECT * FROM students WHERE class LIKE '%$classname%' ";
+                }elseif (!empty($studentname) && !empty($classname)) {
+                    $sql = "SELECT * FROM students WHERE sname LIKE '%$studentname%' AND class LIKE '%$classname%' ";
+                }
+                
+                $view = $student->getData($sql);
+                echo "    <table border=1>
+                <th>last name</th>
+                <th>first name</th>
+                <th>other name</th>
+                <th>class</th>
+                <th>table</th>
+                <th>actions</th>";
+                foreach ($view as $key => $value) {
+                    $reg = $value['reg'];
+                    $lname = $value['lname'];
+                    $fname = $value['fname'];
+                    $oname = $value['oname'];
+                    $class = $value['class'];
+                    $table = $value['tbl'];
+
+                    echo "<tr>
+                    <td>$lname</td>
+                    <td>$fname</td>
+                    <td>$oname</td>
+                    <td>$class</td>
+                    <td>$table</td>
+                    <td>
+                        <a href='update.php?regno=$reg'>update student profile</a>
+                    </td>
+                </tr>";
+                }
+                echo "</table>";
+            }elseif (isset($_POST['updatestudent'])) {
+                $ln = $_POST['ln'];
+                $fn = $_POST['fn'];
+                $on = $_POST['on'];
+                $cl = $_POST['cl']; 
+                $tbl = $_POST['tbl'];
+                $reg = $_POST['reg'];
+                $student->updateStudent($reg,$ln,$fn,$on,$cl,$tbl);
             }
 }    
 
 execute();
+

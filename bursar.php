@@ -12,8 +12,8 @@ class Bursar extends Connect{
             lname VARCHAR(20) NOT NULL,
             fname VARCHAR(20) NOT NULL,
             oname VARCHAR(20),
-            username VARCHAR(20) NOT NULL,
-            passwd VARCHAR(20) NOT NULL
+            username VARCHAR(20) NOT NULL UNIQUE,
+            passwd VARCHAR(100) NOT NULL
         )";
         $this->link->query($sql);
     }
@@ -21,8 +21,8 @@ class Bursar extends Connect{
     public function addBursar($ln,$fn,$on,$user,$pwd){
         $sql = "INSERT INTO bursars (
             lname,
-            fname,
-            oname,
+            fname, 
+            oname, 
             username,
             passwd
         ) VALUES (
