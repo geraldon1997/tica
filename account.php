@@ -61,11 +61,14 @@ class Account extends Connect{
         )";
     }
 
-    public function searchForAccount($sid){
-        $sql = "SELECT * FROM accounts WHERE `sid`='$sid' ";
-    }
-
-    public function viewAccountTransactions($acct_id){
-        $sql = "SELECT * FROM transactions WHERE `acct_id` = '$acct_id' ";
+    public function getAccount($sql){
+        $result = $this->link->query($sql);
+        $rows = array();
+		
+		while ($row = $result->fetch_assoc()) {
+			$rows[] = $row;
+		}
+		
+		return $rows;
     }
 }

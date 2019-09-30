@@ -47,6 +47,17 @@ class Bursar extends Connect{
         $this->link->query($sql);
     }
 
+    public function getBursar($sql){
+        $result = $this->link->query($sql);
+        $rows = array();
+		
+		while ($row = $result->fetch_assoc()) {
+			$rows[] = $row;
+		}
+		
+		return $rows;
+    }
+
     public function hashpwd($pwd){
         $pwd = sha1($pwd);
         return $pwd;

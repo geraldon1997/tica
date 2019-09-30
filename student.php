@@ -51,7 +51,7 @@ class Student extends Connect{
         $this->link->query($sql);
     }
     
-    public function getData($sql){
+    public function getStudent($sql){
         $result = $this->link->query($sql);
         $rows = array();
 		
