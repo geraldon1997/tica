@@ -20,7 +20,7 @@ class Student extends Connect{
             $this->link->query($sql);
     }
 
-    public function addStudent($reg,$ln,$fn,$on,$cl,$tbl){
+    public function addStudent($reg,$ln,$fn,$on,$cl,$tl){
         $sql = "INSERT INTO students (
             reg,
             lname,
@@ -34,19 +34,19 @@ class Student extends Connect{
             '$fn',
             '$on',
             '$cl',
-            '$tbl'
+            '$tl'
             )";
 
         $this->link->query($sql);
     }
     
-    public function updateStudent($reg,$ln,$fn,$on,$cl,$tbl){
+    public function updateStudent($reg,$ln,$fn,$on,$cl,$tl){
         $sql = "UPDATE students 
             SET lname = '$ln',
                 fname = '$fn',
                 oname = '$on',
                 class = '$cl',
-                tbl = '$tbl' WHERE reg = '$reg' ";
+                tbl = '$tl' WHERE reg = '$reg' ";
 
         $this->link->query($sql);
     }
