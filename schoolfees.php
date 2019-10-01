@@ -24,7 +24,14 @@
     foreach ($result as $key => $value) {
         $reg = $value['reg'];
     }
+
     $sql1 = "SELECT * FROM schoolfees WHERE regid = '$reg' ";
+
+    $result1 = $schoolfee->getSchoolfee($sql1);
+
+    foreach ($result1 as $key => $value) {
+        
+    }
  
 }
  ?>
