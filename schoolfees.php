@@ -4,4 +4,11 @@
 
  $schoolfee = new Schoolfee();
 
+ if (isset($_POST['addfeetrans'])) {
+     $schoolfee->createFeeTrans();
+ }elseif (isset($_POST['updatefeetrans'])) {
+     
+ }elseif (isset($_POST['searchstudent'])) {
+     $schoolfee->getSchoolfee();
+ }
  ?>
