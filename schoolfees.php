@@ -11,10 +11,12 @@
 }elseif (isset($_POST['updatefeetrans'])) {
      
 }elseif (isset($_POST['searchstudent'])) {
-    $st = $_POST['student'];
-    $cl = $_POST['class'];
+
+    $st = $_POST['st'];
+    $cl = $_POST['cl'];
+    
     if (empty($st) && !empty($cl)) {
-        $sql = "SELECT * FROM students, schoolfees WHERE class LIKE '%$cl%' ";
+        $sql = "SELECT * FROM students, schoolfees WHERE class LIKE '%$cl%' AND reg = regid ";
     }elseif (empty($cl) && !empty($st)) {
         $sql = "SELECT * FROM students, schoolfees WHERE lname LIKE '%$st%' AND reg = regid ";
     }elseif (!empty($st) && !empty($cl)) {
@@ -22,15 +24,19 @@
     }
 
     $result = $schoolfee->getSchoolfee($sql);
-var_dump($result);
+
+    foreach ($result as $key => $value) {
+        echo $reg = $value['reg'];
+
+    }
     
 }
  ?>
 
 
 <form action="" method="post">
-    <input type="text" name="student" id="">
-    <input type="text" name="class" id="">
+    <input type="text" name="st" id="">
+    <input type="text" name="cl" id="">
     <input type="submit" value="search" name="searchstudent">
 </form>
 

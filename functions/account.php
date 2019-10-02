@@ -11,7 +11,7 @@ class Account extends Connect{
             id INT PRIMARY KEY AUTO_INCREMENT,
             regid INT NOT NULL,
             balance INT NOT NULL,
-            date_updated date NOT NULL,
+            date_updated DATE NOT NULL,
             FOREIGN KEY(regid) REFERENCES students(reg)
         )";
         
@@ -25,7 +25,7 @@ class Account extends Connect{
             amount INT NOT NULL,
             trans_type VARCHAR(10) NOT NULL,
             bursar_id INT NOT NULL,
-            date_updated date,
+            date_updated VARCHAR(20),
             FOREIGN KEY(acct_id) REFERENCES accounts(id),
             FOREIGN KEY(bursar_id) REFERENCES bursars(id)
         )";
@@ -33,15 +33,13 @@ class Account extends Connect{
         $this->link->query($sql);
     }
 
-    public function addAccount($reg,$date){
+    public function addAccount($reg,$bal){
         $sql = "INSERT INTO accounts (
             regid,
-            balance,
-            date_updated
+            balance
         ) VALUES (
             '$reg',
-            0,
-            $date
+            $bal
         )";
 
         $this->link->query($sql);
