@@ -24,12 +24,35 @@
     }
 
     $result = $schoolfee->getSchoolfee($sql);
-
+    echo "<table border='2'>
+    <th>last name</th>
+    <th>first name</th>
+    <th>other name</th>
+    <th>class</th>
+    <th>fees</th>
+    <th>amount paid</th>
+    <th>balance</th>
+    <th>payment status</th>";
     foreach ($result as $key => $value) {
-        echo $reg = $value['reg'];
-
+        $reg = $value['reg'];
+        $ln = $value['lname'];
+        $fn = $value['fname'];
+        $on = $value['oname'];
+        $cl = $value['class'];
+        $fe = $value['fee'];
+        
+        echo "<tr>
+                <td>$ln</td>
+                <td>$fn</td>
+                <td>$on</td>
+                <td>$cl</td>
+                <td>$fe</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>";
     }
-    
+    echo "</table>";
 }
  ?>
 
@@ -40,15 +63,3 @@
     <input type="submit" value="search" name="searchstudent">
 </form>
 
-
-
-<table border='2'>
-            <th>last name</th>
-            <th>first name</th>
-            <th>other name</th>
-            <th>class</th>
-            <th>fees</th>
-            <th>amount paid</th>
-            <th>balance</th>
-            <th>payment status</th>
-</table>

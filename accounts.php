@@ -8,6 +8,6 @@ $account = new Account();
 if (isset($_POST['addtrans'])) {
     $account->addTransaction();
 }elseif (isset($_POST['searchaccount'])) {
-    $account->getAccount();
+    $account->getAccount(); 
 }
 ?>

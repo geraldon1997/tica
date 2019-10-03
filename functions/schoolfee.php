@@ -74,3 +74,22 @@ class SchoolFee extends Connect{
     }
 
 }
+
+$m = date('m');
+$y = date('Y');
+
+switch ($m) {
+    case $m > 8 && $m <= 12:
+        $term = 'first term';
+        $session = $y.' / '.($y + 1);
+        break;
+    
+    case $m >= 1 && $m <= 4:
+        $term = 'second term';
+        $session = ($y - 1).' / '.$y;
+        break;
+
+    case $m > 4 && $m <= 8:
+        $term = 'third term';
+        $session = ($y - 1).' / '.$y;
+}
