@@ -34,12 +34,17 @@
     <th>balance</th>
     <th>payment status</th>";
     foreach ($result as $key => $value) {
+        $schid = $value['id'];
         $reg = $value['reg'];
         $ln = $value['lname'];
         $fn = $value['fname'];
         $on = $value['oname'];
         $cl = $value['class'];
         $fe = $value['fee'];
+
+        $ftr = $schoolfee->getSchoolfee("SELECT * FROM feetrans WHERE schfeeid = '1' ");
+        
+        
         
         echo "<tr>
                 <td>$ln</td>
@@ -63,3 +68,4 @@
     <input type="submit" value="search" name="searchstudent">
 </form>
 
+<?php echo $current_file = $_SERVER['SCRIPT_NAME'];?>

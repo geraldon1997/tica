@@ -28,10 +28,37 @@ if (isset($_POST['addtrans'])) {
     }
 
     $result = $account->getAccount($sql);
+    echo "<table border='2'>
+    <th>last name</th>
+    <th>first name</th>
+    <th>other name</th>
+    <th>class</th>
+    <th>table</th>
+    <th>account balance</th>
+    <th>last transaction date</th>
+    <th>actions</th>";
     foreach ($result as $key => $value) {
-        echo $value['lname'];
-        echo $value['balance'];
+        $rg = $value['reg'];
+        $ln = $value['lname'];
+        $fn = $value['fname'];
+        $on = $value['oname'];
+        $cl = $value['class'];
+        $tl = $value['tbl'];
+        $bl = $value['balance'];
+        $lt = $value['date_updated'];
+
+        echo "<tr>
+        <td>$ln</td>
+        <td>$fn</td>
+        <td>$on</td>
+        <td>$cl</td>
+        <td>$tl</td>
+        <td>$bl</td>
+        <td>$lt</td>
+        <td>action</td>
+    </tr>";
     } 
+    echo "</table>";
 }
 ?>
 

@@ -2,6 +2,11 @@
 
 class SchoolFee extends Connect{
 
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
     public function createSchoolFee(){
         $sql = "CREATE TABLE IF NOT EXISTS schoolfees (
             id INT PRIMARY KEY AUTO_INCREMENT,
