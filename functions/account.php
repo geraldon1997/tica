@@ -25,7 +25,7 @@ class Account extends Connect{
             amount INT NOT NULL,
             trans_type VARCHAR(10) NOT NULL,
             bursar_id INT NOT NULL,
-            date_updated VARCHAR(20),
+            date_updated DATE NOT NULL,
             FOREIGN KEY(acct_id) REFERENCES accounts(id),
             FOREIGN KEY(bursar_id) REFERENCES bursars(id)
         )";
@@ -33,15 +33,22 @@ class Account extends Connect{
         $this->link->query($sql);
     }
 
-    public function addAccount($reg,$bal){
+    public function addAccount($reg,$bal,$date){
         $sql = "INSERT INTO accounts (
             regid,
-            balance
+            balance,
+            date_updated
         ) VALUES (
             '$reg',
-            $bal
+            '$bal',
+            '$date'
         )";
 
+        $this->link->query($sql);
+    }
+
+    public function updateAccout($reg,$bal){
+        $sql = "UPDATE accounts SET balance = '$bal' WHERE regid = '$reg' ";
         $this->link->query($sql);
     }
 
@@ -50,13 +57,14 @@ class Account extends Connect{
             acct_id,
             amount,
             trans_type,
-            bursar
+            bursar_id
         ) VALUES (
             '$ac',
             '$am',
             '$tr',
             '$b'
         )";
+        $this->link->query($sql);
     }
 
     public function getAccount($sql){

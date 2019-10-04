@@ -21,8 +21,7 @@ if (isset($_POST['addstudent'])) {
     $student->createStudent();
     $student->addStudent($reg,$ln,$fn,$on,$cl,$tl);
     $schoolfee->addSchoolFee($reg,65000);
-    $account->addAccount($reg,0);
-
+    $account->addAccount($reg,0,$date);
 
 }elseif (isset($_POST['updatestudent'])) {
     
@@ -77,13 +76,13 @@ if (isset($_POST['addstudent'])) {
 
 ?>
 
-
+search student
 <form action="" method="post">
     <input type="text" name="st" id="">
     <input type="text" name="cl" id="">
     <input type="submit" value="search" name="searchstudent">
 </form>
-<?php echo strtotime(date('Y-m-d')); ?>
+add students
 <form action="" method="post">
     <input type="text" name="ln" id="">
     <input type="text" name="fn" id="">

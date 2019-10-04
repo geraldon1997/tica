@@ -28,14 +28,14 @@ class SchoolFee extends Connect{
     public function createFeeTrans(){
         $sql = "CREATE TABLE IF NOT EXISTS feetrans(
             id INT PRIMARY KEY AUTO_INCREMENT,
-            streg INT NOT NULL,
+            schfeeid INT NOT NULL,
             amount_paid INT NOT NULL,
             bursar_id INT NOT NULL,
             date_paid date NOT NULL,
             term VARCHAR(20) NOT NULL,
             sess VARCHAR(20) NOT NULL,
-            date_entered date NOT NULL,
-            FOREIGN KEY(streg) REFERENCES students(reg),
+            date_entered DATE NOT NULL,
+            FOREIGN KEY(schfeeid) REFERENCES schoolfees(id),
             FOREIGN KEY(bursar_id) REFERENCES bursars(id)
         )";
         
