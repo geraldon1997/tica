@@ -45,7 +45,6 @@
         $ftr = $schoolfee->getSchoolfee("SELECT * FROM feetrans WHERE schfeeid = '1' ");
         
         
-        
         echo "<tr>
                 <td>$ln</td>
                 <td>$fn</td>
