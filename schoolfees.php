@@ -73,5 +73,3 @@
     <input type="text" name="cl" id="">
     <input type="submit" value="search" name="searchstudent">
 </form>
-
-<?php echo $current_file = $_SERVER['SCRIPT_NAME'];?>
