@@ -42,8 +42,15 @@
         $cl = $value['class'];
         $fe = $value['fee'];
 
-        $ftr = $schoolfee->getSchoolfee("SELECT * FROM feetrans WHERE schfeeid = '1' ");
-        
+        $ftr = $schoolfee->getSchoolfee("SELECT * FROM feetrans WHERE schfeeid = 1 ");
+        if ($ftr) {
+            $chk = $ftr->num_rows;
+            if ($chk > 0) {
+                echo "yes";
+            }else{
+                echo "no";
+            }
+        }
         
         echo "<tr>
                 <td>$ln</td>
