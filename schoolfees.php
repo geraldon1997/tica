@@ -24,16 +24,20 @@
     }
 
     $result = $schoolfee->getSchoolfee($sql);
-    echo "<table border='2'>
-    <th>last name</th>
-    <th>first name</th>
-    <th>other name</th>
-    <th>class</th>
-    <th>fees</th>
-    <th>amount paid</th>
-    <th>balance</th>
-    <th>payment status</th>";
+    echo "
+        <table border='2'>
+        <th>last name</th>
+        <th>first name</th>
+        <th>other name</th>
+        <th>class</th>
+        <th>fees</th>
+        <th>amount paid</th>
+        <th>balance</th>
+        <th>payment status</th>
+        ";
+
     foreach ($result as $key => $value) {
+        
         $schid = $value['id'];
         $reg = $value['reg'];
         $ln = $value['lname'];
