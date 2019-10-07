@@ -24,10 +24,11 @@
     }
 
     $result = $schoolfee->getSchoolfee($sql);
+    
     echo "
         <table border='2'>
         <th>last name</th>
-        <th>first name</th>
+        <th>first name</th> 
         <th>other name</th>
         <th>class</th>
         <th>fees</th>
@@ -38,23 +39,15 @@
 
     foreach ($result as $key => $value) {
         
-        $schid = $value['id'];
+       echo  $schid = $value['id'];
         $reg = $value['reg'];
         $ln = $value['lname'];
         $fn = $value['fname'];
         $on = $value['oname'];
         $cl = $value['class'];
         $fe = $value['fee'];
-
-        $ftr = $schoolfee->getSchoolfee("SELECT * FROM feetrans WHERE schfeeid = 1 ");
-        if ($ftr) {
-            $chk = $ftr->num_rows;
-            if ($chk > 0) {
-                echo "yes";
-            }else{
-                echo "no";
-            }
-        }
+    
+        
         
         echo "<tr>
                 <td>$ln</td>
@@ -67,6 +60,15 @@
                 <td></td>
             </tr>";
     }
+    $ftr = $schoolfee->getSchoolfee("SELECT * FROM feetrans WHERE schfeeid = 1 ");
+        if ($ftr) {
+            $chk = count($ftr);
+            if ($chk > 0) {
+                echo "yes";
+            }else{
+                echo "no";
+            }
+        }
     echo "</table>";
 }
  ?>
