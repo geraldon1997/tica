@@ -75,6 +75,7 @@ class SchoolFee extends Connect{
 		
 		while ($row = $result->fetch_assoc()) {
             $rows[] = $row;
+    
 		}
 		
 		return $rows;

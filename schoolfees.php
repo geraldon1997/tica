@@ -24,7 +24,7 @@
     }
 
     $result = $schoolfee->getSchoolfee($sql);
-    
+        
     echo "
         <table border='2'>
         <th>last name</th>
@@ -39,7 +39,7 @@
 
     foreach ($result as $key => $value) {
         
-       echo  $schid = $value['id'];
+       $schid = $value['id'];
         $reg = $value['reg'];
         $ln = $value['lname'];
         $fn = $value['fname'];
@@ -60,15 +60,6 @@
                 <td></td>
             </tr>";
     }
-    $ftr = $schoolfee->getSchoolfee("SELECT * FROM feetrans WHERE schfeeid = 1 ");
-        if ($ftr) {
-            $chk = count($ftr);
-            if ($chk > 0) {
-                echo "yes";
-            }else{
-                echo "no";
-            }
-        }
     echo "</table>";
 }
  ?>
