@@ -1,4 +1,5 @@
 <?php
+
  require 'functions/db.php';
  require 'functions/schoolfee.php';
 
@@ -16,7 +17,7 @@
     $cl = $_POST['cl'];
     
     if (empty($st) && !empty($cl)) {
-        $sql = "SELECT * FROM students, schoolfees WHERE class LIKE '%$cl%' AND reg = regid ";
+        $sql = "SELECT * FROM students, schoolfees WHERE class = '$cl' AND reg = regid ";
     }elseif (empty($cl) && !empty($st)) {
         $sql = "SELECT * FROM students, schoolfees WHERE lname LIKE '%$st%' AND reg = regid ";
     }elseif (!empty($st) && !empty($cl)) {
@@ -24,7 +25,7 @@
     }
 
     $result = $schoolfee->getSchoolfee($sql);
-        
+    
     echo "
         <table border='2'>
         <th>last name</th>

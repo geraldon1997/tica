@@ -1,7 +1,5 @@
 <?php
 
-
-
 class SchoolFee extends Connect{
 
     public function __construct()
@@ -71,14 +69,11 @@ class SchoolFee extends Connect{
 
     public function getSchoolfee($sql){
         $result = $this->link->query($sql);
-        $rows = array();
-		
-		while ($row = $result->fetch_assoc()) {
-            $rows[] = $row;
-    
-		}
-		
-		return $rows;
+        $rows = new object();
+        while ($row = $result->fetch_object()) {
+            $rows = $row->lname.'<br>';
+        }
+        return $rows;
     }
 
 }
